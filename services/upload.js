@@ -1,42 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable func-names */
-/* eslint-disable consistent-return */
-
-// const fs = require('fs');
-
-// const { mkDirByPathSync } = require('../utils/file');
-
-// const DESTINATION = 'public';
-// const AUDIO_FOLDER = 'audios';
-
-// const upload = async (bytes, title, cleanArticleId) => {
-//   const today = new Date();
-//   const year = today.getFullYear();
-//   const month =
-//     today.getMonth() + 1 < 10
-//       ? `0${today.getMonth() + 1}`
-//       : today.getMonth() + 1;
-//   const day = today.getDate() < 10 ? `0${today.getDate()}` : today.getDate();
-
-//   const destination = `./${DESTINATION}/${AUDIO_FOLDER}/${year}/${month}/${day}`;
-
-//   mkDirByPathSync(destination);
-
-//   const fileName = `${cleanArticleId}.wav`;
-
-//   const file = `${destination}/${fileName}`;
-
-//   fs.writeFile(file, bytes, function(err) {
-//     if (err) {
-//       console.log('save file error ', err);
-//       return console.log(err);
-//     }
-//     console.log('save file done ');
-//   });
-//   return file;
-// };
-
-// module.exports = { upload };
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -95,7 +56,6 @@ const upload = multer({
     const extname = fileExts.test(
       path.extname(file.originalname).toLowerCase(),
     );
-
     if (mimetype && extname) {
       return cb(null, true);
     }

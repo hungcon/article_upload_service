@@ -5,10 +5,6 @@ const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const path = require('path');
-const followRedirects = require('follow-redirects');
-
-followRedirects.maxRedirects = 10;
-followRedirects.maxBodyLength = 500 * 1024 * 1024 * 1024;
 
 const camelCaseReq = require('./middlewares/camelCaseReq');
 const snakeCaseRes = require('./middlewares/snakeCaseRes');
